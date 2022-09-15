@@ -18,16 +18,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('postarUsuariosSemSucesso', () => { 
+Cypress.Commands.add('postarUsuariosSemSucesso', () => {
     return cy.request({
         method: 'POST',
         url: '/usuarios',
         failOnStatusCode: false,
         body: {
-          "nome": "Reymundo Volkman",
-          "email": "automation-postUserKeeley4@hotmail.com",
-          "password": "1234",
-          "administrador": "true",
+            "nome": "Reymundo Volkman",
+            "email": "automation-postUserKeeley4@hotmail.com",
+            "password": "1234",
+            "administrador": "true",
         }
     })
 })
@@ -41,7 +41,7 @@ Cypress.Commands.add('rest', (method = 'GET', url = '/', body = null, failOnStat
     })
 })
 
-Cypress.Commands.add('logar',(email, senha) => {
+Cypress.Commands.add('logar', (email, senha) => {
     return cy.request({
         method: 'POST',
         url: '/login',
@@ -55,10 +55,10 @@ Cypress.Commands.add('logar',(email, senha) => {
 
 Cypress.Commands.add('buscarUsuarioParaLogin', () => {
     cy.rest('GET', '/usuarios').then(res => {
-       expect(res.body).to.haveOwnProperty('usuarios')
-       return {
-        email: res.body.usuarios[0].email,
-        senha: res.body.usuarios[0].password
-       }
+        expect(res.body).to.haveOwnProperty('usuarios')
+        return {
+            email: res.body.usuarios[0].email,
+            senha: res.body.usuarios[0].password
+        }
     })
 })
