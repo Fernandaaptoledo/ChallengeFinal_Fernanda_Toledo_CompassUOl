@@ -13,7 +13,7 @@ describe('Casos de teste sobre a rota /produtos da API Serverest', () => {
         })
     })
 
-    contexto('Logar com sucesso', () => {
+    context('Logar com sucesso', () => {
         beforeEach('Logar', () => {
             Serverest.buscarUsuarioParaLogin()
             cy.get('@usuarioLogin').then(usuario => {
@@ -30,4 +30,5 @@ describe('Casos de teste sobre a rota /produtos da API Serverest', () => {
         })
 
     })
+
 })

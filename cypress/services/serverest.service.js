@@ -1,4 +1,7 @@
 
+import  Factory  from '../fixtures/factory';
+
+
 const URL_USUARIOS  = '/usuarios'
 const URL_LOGIN     = '/login'
 const URL_PRODUTOS  = '/produtos'
@@ -18,8 +21,8 @@ export default class Serverest {
     static buscarUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
             cy.wrap({
-                email: res.body.usuarios[0].email,
-                password: res.body.usuarios[0].password
+                email: res.body.usuarios[2].email,
+                password: res.body.usuarios[2].password
             }).as('usuarioLogin')
         })
     }
@@ -38,18 +41,15 @@ export default class Serverest {
     }
 
     static cadastrarProdutoComSucesso() {
+       let produto = Factory.gerarProduto()
+
         return cy.request({
             method: 'POST',
             url: URL_PRODUTOS,
-            body: {
-                "nome": "C3 MT Horizontal",
-                "preco": 350,
-                "descricao": "Carro",
-                "quantidade": 7
-            },
+            body: produto,
             failOnStatusCode: true,
             auth: {
-                bearer: Cypress.env("bearer")
+                bearer: Cypress.env("bearer")   
             }
         })
     }
