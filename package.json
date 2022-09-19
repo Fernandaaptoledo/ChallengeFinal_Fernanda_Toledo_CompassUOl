@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Fernandaaptoledo/-Projeto_Cypress_t-Teste#readme",
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",
+    "ajv": "^8.11.0",
     "cypress": "^9.7.0"
   }
 }

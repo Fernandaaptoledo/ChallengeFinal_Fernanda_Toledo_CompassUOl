@@ -8,9 +8,7 @@ export default class validaServerest {
     //validar o login
 
     static validarBusacaDeUsuarios(resposta) {
-        expect(resposta).to.be.a('object')
-        expect(resposta.body.quantidade).to.be.a('number')
-        expect(resposta.body.quantidade).to.be.greaterThan(0)
+        expect(resposta.body.quantidade).to.be.greaterThan(10)
     }
 
     static validarLoginComSucesso(resposta) {
@@ -21,7 +19,7 @@ export default class validaServerest {
 
     static validarBuscaDeProdutos(resposta) {
         expect(resposta).to.be.a('object')
-        expect(resposta.body.quantidade).to.be.a('string')
+        expect(resposta.body.quantidade).to.be.a('number')
         expect(resposta.body.produtos[0]).to.haveOwnProperty('nome')
         expect(resposta.body.produtos[0]).to.haveOwnProperty('preco')
         expect(resposta.body.produtos[0]).to.haveOwnProperty('descricao')
