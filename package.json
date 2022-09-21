@@ -1,0 +1,30 @@
+{
+  "name": "-projeto_cypress_t-teste",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:open:prod": "cypress open --env configFile=prod",
+    "cy:run:prod": "cypress run --env configFile=prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fernandaaptoledo/-Projeto_Cypress_t-Teste.git"
+  },
+  "keywords": [],
+  "author": "Fernanda Toledo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fernandaaptoledo/-Projeto_Cypress_t-Teste/issues"
+  },
+  "homepage": "https://github.com/Fernandaaptoledo/-Projeto_Cypress_t-Teste#readme",
+  "devDependencies": {
+    "@faker-js/faker": "^7.5.0",
+    "ajv": "^8.11.0",
+    "cypress": "^9.7.0",
+    "cypress-mochawesome-reporter": "^3.2.2"
+  }
+}

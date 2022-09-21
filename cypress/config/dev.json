@@ -1,0 +1,7 @@
+{
+    "baseUrl": "htttp://localhost:3000",
+     "env":{
+        "global_timeout":30000,
+        "environment": "DEV"
+     }
+}
