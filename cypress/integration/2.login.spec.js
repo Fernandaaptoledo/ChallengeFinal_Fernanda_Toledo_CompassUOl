@@ -1,9 +1,8 @@
-
-
 /// <reference types="cypress" />
 
+
 import Serverest from '../services/serverest.service'
-import validaServerest from '../services/validaServerest.service'
+import ValidaServerest from '../services/validaServerest.service'
 
 
 describe('Casos de teste sobre a rota /login da API Serverest', () => {
@@ -12,7 +11,7 @@ describe('Casos de teste sobre a rota /login da API Serverest', () => {
         Serverest.buscarUsuarioParaLogin()
         cy.get('@usuarioLogin').then(usuario => {
             Serverest.logar(usuario).then(res => {
-                validaServerest.validarLoginComSucesso(res)
+                ValidaServerest.validarLoginComSucesso(res)
                    Serverest.salvarBearer(res)
             })
         })

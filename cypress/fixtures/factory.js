@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 
+//const faker = require('faker')
 
 export default class Factory {
 
@@ -12,7 +13,7 @@ export default class Factory {
         }
     }
 
-    static gerarInteiroAleatorio(){
-        return faker.datatype.number(5)
+   static gerarInteiroAleatorio(){
+     return faker.datatype.number(5)
     }
 }

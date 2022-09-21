@@ -22,7 +22,7 @@ import Ajv from 'ajv'
 const ajv = new Ajv({ allErrors: true, verbose: true, strict: false })
 
 Cypress.Commands.add('contractValidation', (res, schema, status) => {
-    cy.log('Validando contrato para' + schema + 'com status' + status)
+    cy.log('Validando contrato para ' + schema + ' com status ' + status)
     cy.fixture(`schemas/${schema}/${status}.json`).then(schema => {
         const validate = ajv.compile(schema)
         const valid = validate(res.body)
@@ -40,7 +40,8 @@ Cypress.Commands.add('contractValidation', (res, schema, status) => {
 })
 
 Cypress.Commands.add('postarUsuariosSemSucesso', () => {
-    return cy.request({
+
+   return cy.request({
         method: 'POST',
         url: '/usuarios',
         failOnStatusCode: false,

@@ -21,8 +21,8 @@ export default class Serverest {
     static buscarUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
             cy.wrap({
-                email: res.body.usuarios[2].email,
-                password: res.body.usuarios[2].password
+                email: res.body.usuarios[1].email,
+                password: res.body.usuarios[1].password
             }).as('usuarioLogin')
         })
     }
@@ -32,7 +32,7 @@ export default class Serverest {
     }
 
     static salvarBearer(resposta) {
-        Cypress.env('baerer', resposta.body.authorization.slice(7))
+        Cypress.env('bearer', resposta.body.authorization.slice(7))
     }
 
     //Produtos//
@@ -41,7 +41,7 @@ export default class Serverest {
     }
 
     static cadastrarProdutoComSucesso() {
-       let produto = Factory.gerarProduto()
+       const produto = Factory.gerarProduto()
 
         return cy.request({
             method: 'POST',
@@ -49,9 +49,10 @@ export default class Serverest {
             body: produto,
             failOnStatusCode: true,
             auth: {
-                bearer: Cypress.env("bearer")   
+                bearer: Cypress.env('bearer')   
             }
         })
     }
+
 
 }

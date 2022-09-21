@@ -1,7 +1,8 @@
 /// <reference types="cypress" />
 
 import Serverest from '../services/serverest.service'
-import validaServerest from '../services/validaServerest.service'
+import ValidaServerest from '../services/validaServerest.service'
+import { faker } from '@faker-js/faker'
 import Factory from '../fixtures/factory'
 
 describe('Casos de teste sobre a rota /usuarios da API Serverest', () => {
@@ -9,32 +10,35 @@ describe('Casos de teste sobre a rota /usuarios da API Serverest', () => {
   it('Deve buscar todos os usuários cadastrados na Serverest', () => {
     Serverest.buscarUsuarios().then(res => {
       cy.contractValidation(res, 'get-usuarios', 200)
-      validaServerest.validarBusacaDeUsuarios(res)
+      ValidaServerest.validarBusacaDeUsuarios(res)
     })
   })
 
-  it.only('Não deve postar um novo usuário administrador existente', () => {
-    cy.postarUsuariosSemSucesso().then(res => {
-      cy.contractValidation(res, 'post-usuarios', 400)
-      expect(res.body.message).to.be.eq('Este email já está sendo usado')
-    })
-  })
+  //it('Não deve postar um novo usuário administrador existente', () => {
+    //cy.postarUsuariosSemSucesso().then(res => {
+      //expect(res).to.be.a('object')
+      //expect(res.body.message).to.be.a('string')
+      //expect(res.body.message).to.be.eq('Este email já está sendo usado')
+   // })
+  //})
+
 
   it('Deve realizar login com sucesso', () => {
     Serverest.buscarUsuarioParaLogin()
     cy.get('@usuarioLogin').then(usuario => {
       Serverest.logar(usuario).then(res => {
-        validaServerest.validarLoginComSucesso(res)
+        ValidaServerest.validarLoginComSucesso(res)
         Serverest.salvarBearer(res)
       })
     })
   })
 
   it('Deve buscar e salvar um usuario em um arquivo json', () => {
-    let inteiro = Factory.gerarInteiroAleatorio()
+    const inteiro = Factory.gerarInteiroAleatorio()
     Serverest.buscarUsuarios().then(res => {
       cy.writeFile('./cypress/fixtures/usuario.json', res.body.usuarios[inteiro])
-      validaServerest.validarBusacaDeUsuarios(res)
+      ValidaServerest.validarBusacaDeUsuarios(res)
+
     })
   })
 
@@ -45,7 +49,7 @@ describe('Casos de teste sobre a rota /usuarios da API Serverest', () => {
         password: json.password
       }
       Serverest.logar(usuario).then(res => {
-        validaServerest.validarLoginComSucesso(res)
+        ValidaServerest.validarLoginComSucesso(res)
         Serverest.salvarBearer(res)
       })
     })
