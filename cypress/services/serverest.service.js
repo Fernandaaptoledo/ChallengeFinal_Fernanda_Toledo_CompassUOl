@@ -53,6 +53,9 @@ export default class Serverest {
             }
         })
     }
-
+    //Carrinho//
+    static colocarProdutoNoCarrinho(){
+        return cy.rest('GET', URL_CARRINHOS)
+    }
 
 }

@@ -1,6 +1,5 @@
 # -Projeto_Cypress_Teste
 LogicalForest Sprint 5 - Estágio Compass UOl
-<img src=" https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" width="50px">
 
 Esse projeto foi criado para maior apredizado em meu estágio.
 

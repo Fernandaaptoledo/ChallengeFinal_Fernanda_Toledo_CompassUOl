@@ -84,3 +84,13 @@ Cypress.Commands.add('buscarUsuarioParaLogin', () => {
         }
     })
 })
+
+Cypress.Commands.add('colocarProdutoNoCarrinho', () => {
+    cy.rest('GET', '/carrinhos').then(res => {
+        expect(res.body).to.haveOwnProperty('carrinhos')
+        return{
+            produto:res.body.quantidade[0].produto,
+            
+        }
+    })
+})

@@ -30,5 +30,12 @@ export default class ValidaServerest {
         //expect(resposta.body.message).to.be.eq('Cadastro realizado com sucesso')
         // expect(resposta.body).to.haveOwnProperty('_id')
     }
-
+    
+    static validarProdutoNoCarrinho(resposta){
+        expect(resposta).to.be.a('object')
+        expect(resposta.body.quantidade).to.be.a('number')
+        //expect(resposta.body.carrinho[0]).to.haveOwnProperty('nome')
+        //expect(resposta.body.carrinho[0]).to.haveOwnProperty('preco')
+        //expect(resposta.body.carrinho[0]).to.haveOwnProperty('descricao')
+    }
 }
