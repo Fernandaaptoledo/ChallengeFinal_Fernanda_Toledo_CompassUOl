@@ -1,5 +1,7 @@
-# -Projeto_Cypress_Teste
+# -Projeto_Cypress_Teste 
 LogicalForest Sprint 5 - Estágio Compass UOl
+<a href="https://www.flaticon.com/br/icones-gratis/javascript" title="javascript ícones">Javascript ícones criados por Freepik - Flaticon</a><a href="https://www.flaticon.com/br/icones-gratis/html-5" title="html 5 ícones">Html 5 ícones criados por Freepik - Flaticon</a><a href="https://www.flaticon.com/br/icones-gratis/gato" title="gato ícones">Gato ícones criados por Dave Gandy - Flaticon</a><a href="https://www.flaticon.com/br/icones-gratis/java" title="java ícones">Java ícones criados por Freepik - Flaticon</a>
+
 
 Esse projeto foi criado para maior apredizado em meu estágio.
 
