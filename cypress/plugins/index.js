@@ -9,6 +9,8 @@ return fs.readJson(caminhoDoArquivo)
 }
 
 module.exports = (on, config) => {
+  require('cypress-mochawesome-reporter/plugin')(on);
+
   const arquivo = config.env.configFile || 'dev'
   return buscarArquivoDeConfig(arquivo)
 }
